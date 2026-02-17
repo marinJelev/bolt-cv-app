@@ -1,0 +1,115 @@
+import { useEffect, useState } from 'react';
+import { supabase } from './lib/supabase';
+import { Header } from './components/Header';
+import { About } from './components/About';
+import { Timeline } from './components/Timeline';
+import { Skills } from './components/Skills';
+import { Education } from './components/Education';
+import { ContactForm } from './components/ContactForm';
+import { workExperience, skills as skillsData, education } from './data';
+import { ContactSubmission } from './types';
+
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(prefersDark);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const handleSkillToggle = (skill: string) => {
+    setSelectedSkills((prev) =>
+      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
+    );
+  };
+
+  const handleNavClick = (section: string) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleExportPDF = () => {
+    const element = document.body;
+    const printWindow = window.open('', '', 'height=600,width=800');
+    if (printWindow) {
+      printWindow.document.write(element.innerHTML);
+      printWindow.document.close();
+      printWindow.print();
+    }
+  };
+
+  const handleContactSubmit = async (data: ContactSubmission) => {
+    try {
+      const { error } = await supabase.from('contact_submissions').insert([
+        {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        },
+      ]);
+
+      if (error) throw error;
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      throw error;
+    }
+  };
+
+  return (
+    <div className={`min-h-screen transition-colors ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <Header isDarkMode={isDarkMode} onThemeToggle={toggleTheme} onNavClick={handleNavClick} />
+
+      <main className="max-w-4xl mx-auto px-4 py-16 space-y-24">
+        <About isDarkMode={isDarkMode} onExportPDF={handleExportPDF} />
+
+        <Timeline
+          experiences={workExperience}
+          isDarkMode={isDarkMode}
+          highlightedSkills={selectedSkills}
+        />
+
+        <Skills
+          skills={skillsData}
+          isDarkMode={isDarkMode}
+          selectedSkills={selectedSkills}
+          onSkillToggle={handleSkillToggle}
+        />
+
+        <Education educationData={education} isDarkMode={isDarkMode} />
+
+        <ContactForm isDarkMode={isDarkMode} onSubmit={handleContactSubmit} />
+      </main>
+
+      <footer className={`border-t ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'}`}>
+        <div className="max-w-4xl mx-auto px-4 py-8 text-center">
+          <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            © 2026 Marin. Built with React, Tailwind CSS, and modern web technologies.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default App;
