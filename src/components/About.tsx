@@ -1,4 +1,4 @@
-import { Download } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface AboutProps {
@@ -7,7 +7,7 @@ interface AboutProps {
 }
 
 export function About({ isDarkMode, onExportPDF }: AboutProps) {
-  const titles = ['Product Manager', 'Product Ninja', 'Product Enthusiast'];
+  const titles = ['Senior Technical Product Manager', 'Product Strategist', 'Product Leader'];
   const [currentTitle, setCurrentTitle] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
@@ -20,17 +20,17 @@ export function About({ isDarkMode, onExportPDF }: AboutProps) {
       if (displayText.length < title.length) {
         timeout = setTimeout(() => {
           setDisplayText(title.slice(0, displayText.length + 1));
-        }, 50);
+        }, 40);
       } else {
         timeout = setTimeout(() => {
           setIsTyping(false);
-        }, 2000);
+        }, 2500);
       }
     } else {
       if (displayText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayText(title.slice(0, displayText.length - 1));
-        }, 30);
+        }, 25);
       } else {
         setCurrentTitle((prev) => (prev + 1) % titles.length);
         setIsTyping(true);
@@ -41,40 +41,36 @@ export function About({ isDarkMode, onExportPDF }: AboutProps) {
   }, [displayText, isTyping, currentTitle]);
 
   return (
-    <section id="about" className="min-h-[60vh] flex items-center justify-center py-20">
-      <div className="text-center space-y-6 max-w-2xl">
-        <div>
-          <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Hi, I'm Marin
+    <section id="about" className={`min-h-screen flex items-center justify-center py-24 transition-colors ${isDarkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
+        <div className="space-y-4">
+          <h1 className={`text-5xl md:text-7xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Product management excellence
           </h1>
-          <p className={`text-2xl md:text-3xl font-semibold h-12 ${isDarkMode ? 'text-blue-400' : 'text-blue-500'}`}>
+          <p className={`text-xl md:text-2xl font-medium h-12 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {displayText}
-            <span className={`animate-pulse ${isDarkMode ? 'text-blue-400' : 'text-blue-500'}`}>|</span>
+            <span className={`animate-pulse ml-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>_</span>
           </p>
         </div>
 
-        <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-          Product Guru • Tech enthusiast by nature • Turning coffee and customer pain points
-into products people actually love
+        <p className={`text-lg leading-relaxed max-w-2xl mx-auto ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          Experienced product leader with 8+ years driving platform optimization, product strategy, and cross-functional collaboration. Currently leading technical initiatives at neoshare.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
           <a
             href="#contact"
-            className={`px-8 py-3 rounded-lg font-semibold transition-colors ${isDarkMode ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+            className={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-medium transition-all ${isDarkMode ? 'bg-white text-gray-950 hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-black'}`}
           >
             Get in Touch
+            <ArrowRight size={18} />
           </a>
           <button
             onClick={onExportPDF}
-            className={`px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
-              isDarkMode
-                ? 'bg-gray-800 text-white border border-gray-700 hover:bg-gray-700'
-                : 'bg-gray-100 text-gray-900 border border-gray-300 hover:bg-gray-200'
-            }`}
+            className={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-medium transition-all border ${isDarkMode ? 'border-gray-700 text-white hover:bg-gray-900' : 'border-gray-300 text-gray-900 hover:bg-gray-50'}`}
           >
-            <Download size={20} />
-            Download Resume
+            <Download size={18} />
+            Download CV
           </button>
         </div>
       </div>

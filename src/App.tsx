@@ -69,10 +69,10 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`min-h-screen transition-colors ${isDarkMode ? 'bg-gray-950 text-white' : 'bg-white text-gray-900'}`}>
       <Header isDarkMode={isDarkMode} onThemeToggle={toggleTheme} onNavClick={handleNavClick} />
 
-      <main className="max-w-4xl mx-auto px-4 py-16 space-y-24">
+      <main>
         <About isDarkMode={isDarkMode} onExportPDF={handleExportPDF} />
 
         <Timeline
@@ -86,10 +86,10 @@ function App() {
         <ContactForm isDarkMode={isDarkMode} onSubmit={handleContactSubmit} />
       </main>
 
-      <footer className={`border-t ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'}`}>
-        <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-          <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            © 2026 Marin. Built with React, Tailwind CSS, and modern web technologies.
+      <footer className={`border-t transition-colors ${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'}`}>
+        <div className="max-w-6xl mx-auto px-6 py-12 text-center">
+          <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            © 2026 Marin Dimitric. Crafted with React and Tailwind CSS.
           </p>
         </div>
       </footer>

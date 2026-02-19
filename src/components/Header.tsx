@@ -1,4 +1,4 @@
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeaderProps {
@@ -13,7 +13,6 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
   const navItems = [
     { label: 'About', id: 'about' },
     { label: 'Experience', id: 'experience' },
-    { label: 'Skills', id: 'skills' },
     { label: 'Education', id: 'education' },
     { label: 'Contact', id: 'contact' },
   ];
@@ -24,23 +23,20 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
   };
 
   return (
-    <header className={`sticky top-0 z-50 border-b transition-colors ${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'}`}>
-      <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'}`}>
-            M
+    <header className={`sticky top-0 z-50 transition-all ${isDarkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-100'} border-b`}>
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className={`text-lg font-semibold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Marin Dimitric
           </div>
-          <h1 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Marin
-          </h1>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`text-sm font-medium transition-colors hover:text-blue-500 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600'}`}
+              className={`text-sm font-medium transition-colors ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
             >
               {item.label}
             </button>
@@ -49,16 +45,17 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
 
         <div className="flex items-center gap-4">
           <button
-            onClick={onThemeToggle}
-            className={`p-2 rounded-lg transition-colors ${isDarkMode ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-            aria-label="Toggle theme"
+            onClick={() => handleNavClick('contact')}
+            className={`hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all ${isDarkMode ? 'text-white hover:bg-gray-800 bg-gray-900 border border-gray-700' : 'text-gray-900 hover:bg-gray-100 bg-transparent border border-gray-300'}`}
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            Get Started
+            <ArrowRight size={16} />
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -66,13 +63,13 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <nav className={`md:hidden border-t ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'}`}>
-          <div className="max-w-4xl mx-auto px-4 py-4 flex flex-col gap-4">
+        <nav className={`md:hidden border-t ${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-gray-50 border-gray-100'}`}>
+          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-left py-2 font-medium transition-colors hover:text-blue-500 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                className={`text-left py-2 font-medium text-sm transition-colors ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
               >
                 {item.label}
               </button>
