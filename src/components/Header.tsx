@@ -24,13 +24,6 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
 
   return (
     <header className={`sticky top-0 z-50 transition-all ${isDarkMode ? 'bg-gray-950 border-gray-800' : 'bg-white border-gray-100'} border-b`}>
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className={`text-lg font-semibold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Marin Jelev
-          </div>
-        </div>
-
         <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <button
