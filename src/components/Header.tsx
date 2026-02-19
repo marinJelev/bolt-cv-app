@@ -45,14 +45,6 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
 
         <div className="flex items-center gap-4">
           <button
-            onClick={() => handleNavClick('contact')}
-            className={`hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all ${isDarkMode ? 'text-white hover:bg-gray-800 bg-gray-900 border border-gray-700' : 'text-gray-900 hover:bg-gray-100 bg-transparent border border-gray-300'}`}
-          >
-            Get Started
-            <ArrowRight size={16} />
-          </button>
-
-          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2"
             aria-label="Toggle menu"
