@@ -45,8 +45,7 @@ export function About({ isDarkMode, onExportPDF }: AboutProps) {
       <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
         <div className="space-y-4">
           <h1 className={`text-5xl md:text-7xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Product management excellence
-          </h1>
+Marin Jelev          </h1>
           <p className={`text-xl md:text-2xl font-medium h-12 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {displayText}
             <span className={`animate-pulse ml-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>_</span>
