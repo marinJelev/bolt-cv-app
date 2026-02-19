@@ -89,7 +89,7 @@ function App() {
       <footer className={`border-t transition-colors ${isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'}`}>
         <div className="max-w-6xl mx-auto px-6 py-12 text-center">
           <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            © 2026 Marin Dimitric. Crafted with React and Tailwind CSS.
+            © 2026 Marin Jelev
           </p>
         </div>
       </footer>
