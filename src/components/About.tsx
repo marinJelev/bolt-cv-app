@@ -54,7 +54,8 @@ export function About({ isDarkMode, onExportPDF }: AboutProps) {
         </div>
 
         <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-          With 8+ years of experience in product management, I've led cross-functional teams and driven product innovation at some of the world's leading tech companies. I'm passionate about building products that solve real problems and create meaningful impact.
+          Product Guru • Tech enthusiast by nature • Turning coffee and customer pain points
+into products people actually love
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
