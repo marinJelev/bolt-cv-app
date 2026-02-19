@@ -32,7 +32,7 @@ export function Timeline({ experiences, isDarkMode, highlightedSkills = [] }: Ti
             Work Experience
           </h2>
           <p className={`mt-4 text-lg ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            8+ years driving product strategy and innovation
+            10+ years driving product strategy and innovation
           </p>
         </div>
 
