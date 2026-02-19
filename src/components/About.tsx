@@ -53,7 +53,8 @@ Marin Jelev          </h1>
         </div>
 
         <p className={`text-lg leading-relaxed max-w-2xl mx-auto ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-          Experienced product leader with 8+ years driving platform optimization, product strategy, and cross-functional collaboration. Currently leading technical initiatives at neoshare.
+          Product Guru • Tech enthusiast by nature • Turning coffee and customer pain points
+into products people actually love
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
