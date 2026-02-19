@@ -27,7 +27,7 @@ export function Header({ isDarkMode, onThemeToggle, onNavClick }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={`text-lg font-semibold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Marin Dimitric
+            Marin Jelev
           </div>
         </div>
 
