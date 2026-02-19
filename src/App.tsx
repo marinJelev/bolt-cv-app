@@ -3,15 +3,13 @@ import { supabase } from './lib/supabase';
 import { Header } from './components/Header';
 import { About } from './components/About';
 import { Timeline } from './components/Timeline';
-import { Skills } from './components/Skills';
 import { Education } from './components/Education';
 import { ContactForm } from './components/ContactForm';
-import { workExperience, skills as skillsData, education } from './data';
+import { workExperience, education } from './data';
 import { ContactSubmission } from './types';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -34,12 +32,6 @@ function App() {
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-  };
-
-  const handleSkillToggle = (skill: string) => {
-    setSelectedSkills((prev) =>
-      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
-    );
   };
 
   const handleNavClick = (section: string) => {
@@ -86,14 +78,7 @@ function App() {
         <Timeline
           experiences={workExperience}
           isDarkMode={isDarkMode}
-          highlightedSkills={selectedSkills}
-        />
-
-        <Skills
-          skills={skillsData}
-          isDarkMode={isDarkMode}
-          selectedSkills={selectedSkills}
-          onSkillToggle={handleSkillToggle}
+          highlightedSkills={[]}
         />
 
         <Education educationData={education} isDarkMode={isDarkMode} />
