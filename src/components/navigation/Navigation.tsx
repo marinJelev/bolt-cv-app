@@ -49,10 +49,6 @@ export function Navigation({ onNavClick }: NavigationProps) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
-        <div className="text-xl font-semibold text-gray-900 cursor-pointer" onClick={() => handleNavClick('about')}>
-          Marin
-        </div>
-
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
