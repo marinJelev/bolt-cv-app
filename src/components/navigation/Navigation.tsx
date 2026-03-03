@@ -1,5 +1,5 @@
-import { Menu, X, Search } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface NavigationProps {
   onNavClick: (section: string) => void;
@@ -7,6 +7,7 @@ interface NavigationProps {
 
 export function Navigation({ onNavClick }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
 
   const navItems = [
     { label: 'About', id: 'about' },
@@ -16,9 +17,33 @@ export function Navigation({ onNavClick }: NavigationProps) {
     { label: 'Contact', id: 'contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) => ({
+        id: item.id,
+        element: document.getElementById(item.id),
+      }));
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect();
+          if (rect.top <= 100) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (id: string) => {
     onNavClick(id);
     setMobileMenuOpen(false);
+    setActiveSection(id);
   };
 
   return (
@@ -33,7 +58,11 @@ export function Navigation({ onNavClick }: NavigationProps) {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              className={`text-sm font-medium transition-colors ${
+                activeSection === item.id
+                  ? 'text-gray-900 border-b-2 border-blue-600'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
             >
               {item.label}
             </button>
@@ -41,10 +70,6 @@ export function Navigation({ onNavClick }: NavigationProps) {
         </nav>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <button className="text-gray-600 hover:text-gray-900 transition-colors hidden sm:block">
-            <Search size={20} />
-          </button>
-
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-gray-900"
@@ -62,7 +87,11 @@ export function Navigation({ onNavClick }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="block w-full text-left py-2 text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
+                className={`block w-full text-left py-2 transition-colors font-medium text-sm ${
+                  activeSection === item.id
+                    ? 'text-gray-900 border-l-2 border-blue-600 pl-3'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {item.label}
               </button>

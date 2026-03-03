@@ -8,7 +8,7 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experiences }: ExperienceSectionProps) {
   return (
-    <Section className="bg-white">
+    <Section id="experience" className="bg-white">
       <div className="space-y-8">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">

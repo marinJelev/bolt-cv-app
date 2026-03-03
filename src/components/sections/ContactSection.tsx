@@ -36,7 +36,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
   };
 
   return (
-    <Section className="bg-gray-50">
+    <Section id="contact" className="bg-gray-50">
       <div className="space-y-8">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
