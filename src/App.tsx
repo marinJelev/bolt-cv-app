@@ -17,13 +17,12 @@ function App() {
   };
 
   const handleExportPDF = () => {
-    const element = document.body;
-    const printWindow = window.open('', '', 'height=600,width=800');
-    if (printWindow) {
-      printWindow.document.write(element.innerHTML);
-      printWindow.document.close();
-      printWindow.print();
-    }
+    const link = document.createElement('a');
+    link.href = '/MarinJelev.pdf';
+    link.download = 'MarinJelev.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleContactSubmit = async (data: ContactSubmission) => {

@@ -48,7 +48,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-center">
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
@@ -65,7 +65,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="absolute right-6 md:right-8 flex items-center gap-4 md:gap-6">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-gray-900"
