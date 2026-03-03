@@ -14,7 +14,6 @@ export const workExperience: WorkExperience[] = [
       'Contributed to the growth of the product team by actively participating in the hiring process for Product Managers, Product Operations Managers, and UX Researcher',
     ],
     technologies: [],
-    companyUrl: 'https://neoshare.com',
   },
   {
     id: 'prodvio',
