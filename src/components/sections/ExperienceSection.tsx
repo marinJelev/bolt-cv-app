@@ -15,7 +15,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
             Work Experience
           </h2>
           <p className="text-lg text-gray-600 mt-4">
-            8+ years of product leadership and strategic development
+            10+ years of product leadership and strategic development
           </p>
         </div>
 
