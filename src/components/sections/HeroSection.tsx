@@ -54,7 +54,7 @@ export function HeroSection({ onExportPDF, onContactClick }: HeroSectionProps) {
         </div>
 
         <p className="text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto">
-          8+ years of expertise in product management, strategy, and cross-functional leadership. Committed to building products that solve real problems and drive measurable impact.
+          10+ years of expertise in product management, strategy, and cross-functional leadership. Committed to building products that solve real problems and drive measurable impact.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
