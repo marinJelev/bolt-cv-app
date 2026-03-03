@@ -31,7 +31,7 @@ export const workExperience: WorkExperience[] = [
   {
     id: 'finalsite',
     company: 'FinalSite',
-    position: 'Platform Product Manager',
+    position: 'Platform Product Manager (1y contract)',
     startDate: 'Jan 2023',
     endDate: 'Dec 2023',
     description: 'Platform Product Manager overseeing CRM product lifecycle',
