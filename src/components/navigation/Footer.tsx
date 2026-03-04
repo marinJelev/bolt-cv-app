@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
-        <div className="grid gap-8 md:grid-cols-4 mb-8">
+        <div className="grid gap-12 md:grid-cols-2 mb-8">
           <div>
             <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -22,21 +22,6 @@ export function Footer() {
               <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#contact" className="hover:text-white transition-colors">Get in Touch</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4">About</h3>
-            <p className="text-sm text-gray-400">
-              Product leader passionate about building exceptional products and driving strategic growth.
-            </p>
           </div>
         </div>
 
