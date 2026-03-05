@@ -8,10 +8,10 @@ interface EducationSectionProps {
 
 export function EducationSection({ educationData }: EducationSectionProps) {
   return (
-    <Section id="education" className="bg-gray-50">
+    <Section id="education" className="bg-gradient-to-r from-purple-50 to-transparent">
       <div className="space-y-8">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-purple to-accent-red bg-clip-text text-transparent">
             Education
           </h2>
         </div>

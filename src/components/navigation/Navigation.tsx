@@ -46,17 +46,25 @@ export function Navigation({ onNavClick }: NavigationProps) {
     setActiveSection(id);
   };
 
+  const colorMap: Record<string, string> = {
+    about: 'text-accent-blue',
+    experience: 'text-accent-green',
+    skills: 'text-accent-purple',
+    education: 'text-accent-red',
+    contact: 'text-accent-orange',
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-center">
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-bold transition-all duration-300 ${
                 activeSection === item.id
-                  ? 'text-gray-900 border-b-2 border-blue-600'
+                  ? `${colorMap[item.id]} border-b-3 border-current pb-1`
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -68,7 +76,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
         <div className="absolute right-6 md:right-8 flex items-center gap-4 md:gap-6">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-900"
+            className="md:hidden text-accent-blue font-bold"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,15 +85,15 @@ export function Navigation({ onNavClick }: NavigationProps) {
       </div>
 
       {mobileMenuOpen && (
-        <nav className="md:hidden border-t border-gray-200 bg-white">
+        <nav className="md:hidden border-t-2 border-gray-200 bg-white">
           <div className="max-w-7xl mx-auto px-6 py-4 space-y-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left py-2 transition-colors font-medium text-sm ${
+                className={`block w-full text-left py-2 transition-all duration-300 font-bold text-sm ${
                   activeSection === item.id
-                    ? 'text-gray-900 border-l-2 border-blue-600 pl-3'
+                    ? `${colorMap[item.id]} border-l-4 border-current pl-3`
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >

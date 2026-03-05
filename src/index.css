@@ -8,19 +8,19 @@
   }
 
   body {
-    @apply font-sans;
+    @apply font-sans bg-gradient-to-b from-white via-blue-50 to-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
+    @apply font-bold;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl;
+    @apply text-4xl md:text-6xl;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-3xl md:text-5xl;
   }
 
   h3 {
@@ -30,18 +30,18 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors;
+    @apply px-6 py-3 bg-accent-blue text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border border-gray-300 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors;
+    @apply px-6 py-3 border-2 border-accent-blue text-accent-blue rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all;
   }
 
   .card {
-    @apply border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all;
+    @apply border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent-blue transition-all duration-300 bg-white;
   }
 }

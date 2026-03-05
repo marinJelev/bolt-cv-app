@@ -8,14 +8,14 @@ interface SkillsSectionProps {
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
   return (
-    <Section id="skills" className="bg-white">
+    <Section id="skills" className="bg-gradient-to-r from-green-50 to-transparent">
       <div className="space-y-8">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-green to-accent-teal bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
-          <p className="text-lg text-gray-600 mt-4">
-            A comprehensive set of product management and technical competencies
+          <p className="text-lg text-gray-700 mt-4 font-medium">
+            A comprehensive set of <span className="text-accent-orange">product management</span> and <span className="text-accent-purple">technical competencies</span>
           </p>
         </div>
 
