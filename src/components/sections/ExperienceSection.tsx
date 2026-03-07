@@ -8,14 +8,14 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experiences }: ExperienceSectionProps) {
   return (
-    <Section id="experience" className="bg-gradient-to-r from-blue-50 to-transparent">
+    <Section id="experience" className="bg-white">
       <div className="space-y-8">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-blue to-accent-teal bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-accent-dark">
             Work Experience
           </h2>
           <p className="text-lg text-gray-700 mt-4 font-medium">
-            <span className="text-accent-blue">10+ years</span> of product leadership and <span className="text-accent-green">strategic development</span>
+            <span className="text-accent-blue font-bold">10+ years</span> of product leadership and strategic development
           </p>
         </div>
 

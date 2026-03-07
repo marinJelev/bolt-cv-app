@@ -23,7 +23,7 @@ export function ExperienceCard({
   const [expanded, setExpanded] = useState(defaultExpanded);
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden transition-all hover:shadow-xl hover:border-accent-blue">
+    <div className="border-2 border-gray-300 rounded-lg overflow-hidden transition-all hover:shadow-xl hover:border-accent-blue">
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full px-6 py-5 text-left hover:bg-blue-50 transition-all duration-300"
@@ -31,21 +31,21 @@ export function ExperienceCard({
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+              <h3 className="text-lg font-bold text-accent-dark">{title}</h3>
               {companyUrl && (
                 <a
                   href={companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="text-accent-blue hover:text-accent-teal transition-colors"
+                  className="text-accent-blue hover:text-accent-dark transition-colors"
                 >
                   <ExternalLink size={16} />
                 </a>
               )}
             </div>
-            <p className="text-sm font-semibold text-accent-green">{company}</p>
-            <p className="text-xs text-gray-600 mt-1 font-medium">{period}</p>
+            <p className="text-sm font-semibold text-gray-600">{company}</p>
+            <p className="text-xs text-gray-500 mt-1 font-medium">{period}</p>
           </div>
           <div className="text-accent-blue">
             {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -65,7 +65,7 @@ export function ExperienceCard({
               <ul className="space-y-2">
                 {achievements.map((achievement, idx) => (
                   <li key={idx} className="text-sm text-gray-700 flex gap-3">
-                    <span className="text-accent-orange font-bold mt-0.5">→</span>
+                    <span className="text-accent-dark font-bold mt-0.5">•</span>
                     <span>{achievement}</span>
                   </li>
                 ))}

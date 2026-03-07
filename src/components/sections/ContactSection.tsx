@@ -36,14 +36,14 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
   };
 
   return (
-    <Section id="contact" className="bg-gradient-to-r from-orange-50 via-red-50 to-transparent">
+    <Section id="contact" className="bg-white">
       <div className="space-y-8">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-orange to-accent-red bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-accent-dark">
             Get in Touch
           </h2>
           <p className="text-lg text-gray-700 mt-4 font-medium">
-            Have a <span className="text-accent-blue">project</span> or <span className="text-accent-orange">opportunity</span>? Let's <span className="text-accent-green">collaborate</span>.
+            Have a <span className="text-accent-blue font-bold">project</span> or <span className="text-accent-dark font-bold">opportunity</span>? Let's collaborate.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
                 placeholder="Your name"
               />
             </div>
@@ -74,7 +74,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
                 placeholder="your@email.com"
               />
             </div>
@@ -89,7 +89,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent-blue focus:ring-2 focus:ring-accent-blue focus:ring-opacity-20 transition-all"
                 placeholder="Tell me about your project..."
               />
             </div>
@@ -97,7 +97,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-gradient-to-r from-accent-orange to-accent-red text-white rounded-lg font-bold hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 text-lg"
+              className="w-full px-6 py-3 bg-accent-blue text-white rounded-lg font-bold hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 text-lg"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
               {!isSubmitting && <ArrowRight size={18} />}
@@ -132,7 +132,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 border-2 border-accent-teal rounded-lg text-accent-teal font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-md"
+                  className="flex items-center gap-3 px-4 py-3 border-2 border-gray-700 rounded-lg text-gray-700 font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-md"
                 >
                   <Linkedin size={20} />
                   <span>Connect on LinkedIn</span>
@@ -140,7 +140,7 @@ export function ContactSection({ onSubmit }: ContactSectionProps) {
               </div>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-accent-blue via-accent-teal to-accent-green rounded-lg text-white">
+            <div className="p-6 bg-accent-blue rounded-lg text-white">
               <h4 className="font-bold text-lg mb-2">
                 Quick Response
               </h4>

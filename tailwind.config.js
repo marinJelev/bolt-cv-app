@@ -5,12 +5,8 @@ export default {
     extend: {
       colors: {
         accent: {
-          blue: '#2173BE',
-          green: '#529A6A',
-          purple: '#C455EB',
-          red: '#EB5B55',
-          orange: '#F09236',
-          teal: '#1BA098',
+          blue: '#1E40AF',
+          dark: '#0F172A',
         },
       },
     },

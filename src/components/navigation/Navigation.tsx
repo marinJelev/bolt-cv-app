@@ -46,16 +46,8 @@ export function Navigation({ onNavClick }: NavigationProps) {
     setActiveSection(id);
   };
 
-  const colorMap: Record<string, string> = {
-    about: 'text-accent-blue',
-    experience: 'text-accent-green',
-    skills: 'text-accent-purple',
-    education: 'text-accent-red',
-    contact: 'text-accent-orange',
-  };
-
   return (
-    <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-center">
         <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
@@ -64,7 +56,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
               onClick={() => handleNavClick(item.id)}
               className={`text-sm font-bold transition-all duration-300 ${
                 activeSection === item.id
-                  ? `${colorMap[item.id]} border-b-3 border-current pb-1`
+                  ? 'text-accent-blue border-b-3 border-accent-blue pb-1'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -85,7 +77,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
       </div>
 
       {mobileMenuOpen && (
-        <nav className="md:hidden border-t-2 border-gray-200 bg-white">
+        <nav className="md:hidden border-t-2 border-gray-300 bg-white">
           <div className="max-w-7xl mx-auto px-6 py-4 space-y-4">
             {navItems.map((item) => (
               <button
@@ -93,7 +85,7 @@ export function Navigation({ onNavClick }: NavigationProps) {
                 onClick={() => handleNavClick(item.id)}
                 className={`block w-full text-left py-2 transition-all duration-300 font-bold text-sm ${
                   activeSection === item.id
-                    ? `${colorMap[item.id]} border-l-4 border-current pl-3`
+                    ? 'text-accent-blue border-l-4 border-accent-blue pl-3'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
